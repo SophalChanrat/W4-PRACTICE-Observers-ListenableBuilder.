@@ -12,3 +12,18 @@ enum ThemeColor {
 }
 
 ThemeColor currentThemeColor = ThemeColor.blue;
+
+class ChangeTheme extends ChangeNotifier {
+  ThemeColor themeColor = currentThemeColor;
+  int currentIndex = 0;
+
+  void setThemeColor(ThemeColor newThemeColor) {
+    themeColor = newThemeColor;
+    notifyListeners();
+  }
+
+  void onTabChange(int index) {
+    currentIndex = index;
+    notifyListeners();
+  }
+}
